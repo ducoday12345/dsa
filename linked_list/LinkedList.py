@@ -33,6 +33,9 @@ class LinkedList:
     #insert after index
     def insert(self,index,value):
         count = 0
+        if index < 0 or index>=len(self):
+            raise Exception("Invalid index")
+        if index = 0
 
     #remove value at index
     def remove_at(self, index):
