@@ -2,9 +2,9 @@ from LinkedList import LinkedList
 
 #initialize linked list: 7-->6-->5-->None
 def initialize(ll: LinkedList):
-    head.push_front(5)
-    head.push_front(6)
-    head.push_front(7)
+    ll.push_front(5)
+    ll.push_front(6)
+    ll.push_front(7)
     print(f"Instantiate LL head: ")
 
 def test_push_front(ll:LinkedList):
