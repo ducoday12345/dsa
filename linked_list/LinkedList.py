@@ -28,14 +28,55 @@ class LinkedList:
     
     #pop first element
     def pop_front(self):
-        pass
-    
-    #insert after index
-    def insert(self,index,value):
+        if len(self) == 0:
+            raise IndexError("The linked list is empty.")
+        self.head =self.head.next
+
+    #pop first element
+    def pop_back(self):
+        cur = self.head
         count = 0
-        if index < 0 or index>=len(self):
+        if len(self) == 0:
+            raise IndexError("The linked list is empty.")
+        while cur.next != 0:
+            if count == len(self)  - 2:
+                cur.next = None
+                break
+            cur = cur.next
+            count += 1
+
+    #get first value
+    def front(self):
+        return self.head.value
+    
+    #get last value
+    def back(self):
+        if len(self) == 0:
+            raise IndexError("The linked list is empty.")
+        cur = self.head
+        while cur.next!= None:
+            cur = cur.next
+        return cur.value
+        
+
+
+    #insert after index
+    def insert(self, value , index = 0):
+        count = 0
+        cur = self.head
+        
+        if index < 0 or index>len(self):
             raise Exception("Invalid index")
-        if index = 0
+        if index == 0:
+            self.push_front(value)
+        while cur != None:
+            if count == index - 1:
+                node = ListNode(value, cur.next)
+                cur.next = node
+                break
+            cur = cur.next
+            count += 1
+
 
     #remove value at index
     def remove_at(self, index):
@@ -53,8 +94,8 @@ class LinkedList:
             if count == index-1:
                 cur.next = cur.next.next
                 break
-            count += 1
             cur = cur.next
+            count += 1
 
     #find value at index
     def value_at(self, index):
@@ -68,7 +109,7 @@ class LinkedList:
             count += 1
             cur = cur.next
 
-    #print linked list
+    #Print linked list
     def __str__(self):
         if self.head == None:
             print("Linked list is empty")
@@ -96,3 +137,34 @@ class LinkedList:
     #check empty
     def empty(self):
         return True if len(self) == 0 else False
+    
+    #Reverse LL
+    def reverse(self):
+        cur = self.head
+        prev = None
+        while cur:
+            temp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = temp
+        self.head = prev
+        return prev
+    
+    #removes the first item in the list with this value
+    def remove_value(self,value):
+        if len(self) == 0:
+            raise IndexError("The linked list is empty.")
+        
+        # If the value is in the head node
+        if self.head.value == value:
+            self.head = self.head.next
+        cur = self.head
+
+        # Traverse the list to find the value
+        while cur!= None:
+            if cur.next.value == value:
+                cur.next = cur.next.next
+                return
+            cur = cur.next
+        raise ValueError(f"Value {value} not found in the LL")
+        
