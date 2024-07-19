@@ -5,16 +5,16 @@ def initialize(ll: LinkedList):
     ll.push_front(5)
     ll.push_front(6)
     ll.push_front(7)
-    print(f"Instantiate LL head: ")
+    print(f"Instantiate LL: ")
 
 def test_push_front(ll:LinkedList):
     new_value = 13
-    head.push_front(new_value)
+    ll.push_front(new_value)
     print(f"Append '{new_value}' to beginning of LL: {ll}")  
 
 def test_push_back(ll:LinkedList):
     new_value = 69
-    head.push_back(new_value)
+    ll.push_back(new_value)
     print(f"Append '{new_value}' to end of LL: {ll}")  
 
 def test_size(ll:LinkedList):
@@ -25,7 +25,7 @@ def test_empty(ll:LinkedList):
 
 def test_remove_at(ll:LinkedList):
     index = 2
-    head.remove_at(index)
+    ll.remove_at(index)
     print(f"Remove element at index {index}: {ll}")  
 
 def test_value_at(ll:LinkedList):
@@ -69,30 +69,17 @@ if __name__ == "__main__":
 
     #test function
     initialize(head)
-
     test_push_front(head)
-    
     test_push_back(head)
-    
     test_size(head)
-
     test_empty(head)
     test_empty(head_empty)
-
     test_remove_at(head)
-
     test_value_at(head)
-
     test_insert(head)
-
     test_pop_front(head)
-
     test_pop_back(head)
-
     test_front(head)
-
     test_back(head)
-
     test_reverse(head)
-
     test_remove_value(head)
