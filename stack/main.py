@@ -14,8 +14,12 @@ def test_pop(stack:Stack):
 def test_peek(stack:Stack):
     print(f"Top of the stack value: {stack.peek()}") 
 
+def is_full(stack:Stack):
+    print(f"Check if stack is full: {stack.is_full()}") 
+
 if __name__ == "__main__":
-    s = Stack()
+    s = Stack(4)
     initialize(s)
+    is_full(s)
     test_pop(s)
     test_peek(s)

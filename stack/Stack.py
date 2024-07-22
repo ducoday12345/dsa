@@ -3,22 +3,28 @@ from ListNode import ListNode
 
 
 class Stack:    #implementation using linked list
-    def __init__(self):
+    def __init__(self, max_size):
         self.head = None # last element of the stack => first one to remove if pop()
         self.tail = None #first element of the stack => last one to remove if pop()
+        self.max_size = max_size
         self.size = 0
     
     def __len__(self):
         return self.size
     
     def is_empty(self):
-        if len(self) == 0:
-            return True
-        else:
-            return False
+        
+            return True if len(self) == 0 else False
+        
+    def is_full(self):
+        
+        return True if len(self) == self.max_size else False
         
     def push(self, value):
         node = ListNode(value)
+        if self.is_full():
+            raise IndexError("Stack is full")
+        
         if self.head == None:
             self.head = node
             self.tail = node
