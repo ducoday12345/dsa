@@ -5,7 +5,7 @@ def initialize(ll: LinkedList):
     ll.push_front(5)
     ll.push_front(6)
     ll.push_front(7)
-    print(f"Instantiate LL: ")
+    print(f"Create initial LL: ")
 
 def test_push_front(ll:LinkedList):
     new_value = 13
