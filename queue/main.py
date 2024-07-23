@@ -1,16 +1,25 @@
+from Queue import Queue
 
-def sortPeople(names: list[str], heights: list[int]) -> list[str]:
-        dic = {}
-        res = []
-        for i in range(len(names)):
-            dic[names[i]] = heights[i]
-        
-        dic2 = dict(sorted(dic.items(), key = lambda item: item[1], reverse = True))
-        for i in dic2:
-            res.append(i)
-        return res
+def initialize(queue: Queue):
+    queue.enque(3)
+    queue.enque(5)
+    queue.enque(6)
+    queue.enque(1)
+    print(f"Create initial queue: {queue}")
+
+def test_pop(queue:Queue):
+    print(f"POP! The removed value {queue.deque()}") 
+    print(f"New Queue: {queue}") 
+
+def test_peek(queue:Queue):
+    print(f"Top of the queue value: {queue.peek()}") 
+
+def is_full(queue:Queue):
+    print(f"Check if queue is full: {queue.is_full()}") 
 
 if __name__ == "__main__":
-    names = ["Alice","Bob","Bob"]
-    heights = [155,185,150]
-    print(sortPeople(names, heights))
+    s = Queue(4)
+    initialize(s)
+    is_full(s)
+    test_pop(s)
+    test_peek(s)
