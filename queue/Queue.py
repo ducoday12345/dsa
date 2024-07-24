@@ -1,8 +1,26 @@
 from ListNode import ListNode
 #implementation of Queue: fifo dsa
 class QueueArray():
-    def __init__(self):
-        self.queue_arr = []
+    def __init__(self, max_size):
+        self.queue = [None]*max_size
+        self.max_size = max_size
+        self.size = 0
+    
+    def __len__(self):
+        return self.size
+    
+    def is_full(self):
+        return True if len(self) == self.max_size else False
+
+    def is_empty(self):
+        return True if len(self) == 0 else False     
+        
+    
+    def enqueue(self, value):
+        self.queue
+
+    def dequeue(self):
+        pass
 
 class Queue(): #linked list implementation
     def __init__(self, max_size):
@@ -14,7 +32,7 @@ class Queue(): #linked list implementation
     def __len__(self):
         return self.size
 
-    def enque(self, value):
+    def enqueue(self, value):
         node = ListNode(value)
         if self.is_full() == True:
             raise IndexError("The queue is full")
@@ -29,12 +47,13 @@ class Queue(): #linked list implementation
             self.tail = node
         
 
-    def deque(self):
+    def dequeue(self):
         if len(self) == 0:
             raise IndexError("The queue is empty")
         else:
             temp = self.head.value # save the pop element
             self.head = self.head.next # remove the first element in queue
+            self.size -= 1
         return temp
     
     def is_empty(self):
