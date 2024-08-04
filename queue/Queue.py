@@ -1,4 +1,5 @@
 from ListNode import ListNode
+from collections import deque
 #implementation of Queue: fifo dsa
 
 class QueueArray(): #FIXED SIZE ARRAY IMPLEMENTATION
@@ -18,7 +19,6 @@ class QueueArray(): #FIXED SIZE ARRAY IMPLEMENTATION
     def is_empty(self):
         return True if len(self) == 0 else False     
         
-    
     def enqueue(self, value):
         if self.is_full() == True:
             raise IndexError("The queue is full")
@@ -26,7 +26,6 @@ class QueueArray(): #FIXED SIZE ARRAY IMPLEMENTATION
         self.queue[self.tail] = value
         self.tail = self.tail+1
         
-
     def dequeue(self):
         if self.is_empty() == True:
             raise IndexError("The queue is empty")
@@ -104,8 +103,44 @@ class Queue(): #LINKED LIST IMPLEMENTATION
             cur = cur.next
         return "-->".join(arr)
 
-
-
+class DeQue:
+    def __init__(self, max_size):
+        self.queue = deque()
+        self.max_size = max_size
+        
+    def enqueue(self, value):
+        if self.is_full():
+            raise IndexError("The queue is full")
+        else:
+            self.queue.append(value)
+            
+    def dequeue(self):
+        if len(self) == 0:
+            raise IndexError("The queue is empty")
+        else:
+            return self.queue.popleft()
+        
+    def peek(self):
+        if len(self) == 0:
+            raise IndexError("The queue is empty")
+        else:
+            return self.queue[0]   
+            
+    def is_full(self):
+        return True if len(self.queue) == self.max_size else False
+    
+    def is_empty(self):
+        return True if len(self.queue) == 0 else False
+        
+    def __len__(self):
+        return len(self.queue)
+    
+    def __str__(self):
+        arr = []
+        for i in self.queue:
+            arr.append(str(i))
+        return "-->". join(arr)
+            
 
 
     
