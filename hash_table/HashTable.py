@@ -26,7 +26,7 @@ class HashTable:
         index = self._hash(key)
         for i, pair in enumerate(self.table[index]):
             if pair[0] == key:
-                self.table[i] = []
+                del self.table[index][i]
                 self.count -= 1
                 return
             else:

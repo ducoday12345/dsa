@@ -5,15 +5,15 @@ class TestHashTable:
         hashTable.insert(6,8)
         hashTable.insert(7,9)
         hashTable.insert(4,3)
-        print(f"The new hash table is: {hashTable}")
+        print(f"The hash table is: {hashTable}")
         
     def testDelete(hashTable: HashTable, key):
         hashTable.delete(key)
-        print(f"The new hash table is: {hashTable}")
+        print(f"The hash table is: {hashTable}")
         
     def testExists(hashTable: HashTable, key):
         if hashTable.exists(key) == True:
-            print(f"The new hash table is: {hashTable}")
+            print(f"The hash table is: {hashTable}")
         else:
             print(f"the key does not exist")
             
