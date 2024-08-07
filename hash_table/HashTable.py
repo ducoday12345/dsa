@@ -5,13 +5,13 @@ class HashTable:
         self.count = 0 #length
         
     def _hash(self,key):
-        return hash(key) %self.max # compute the hash value => location in the hash
+        return hash(key) % self.max # compute the hash value => location in the hash
     
     def __len__(self):
         return self.count
     
     def __str__(self):
-        return self.table
+        return str(self.table)
     
     def insert(self, key, value):
         index = self._hash(key)
