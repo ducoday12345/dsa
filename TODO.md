@@ -3,8 +3,8 @@
 - [x] Linked list
 - [x] Stack 
 - [x] Queue
-- [ ] Hash table
-- [ ] Binary Search
+- [x] Hash table
+- [x] Binary Search
 - [ ] Bitwise operations
 - [ ] Trees
 - [ ] BST
