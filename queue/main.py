@@ -79,6 +79,7 @@ if __name__ == "__main__":
     t0 = Queue(5)
     t1 = Queue(5)
     t2 = DeQue(5)
+    
     TestLLQueue.initialize(t0)
     TestLLQueue.is_full(t0)
     TestLLQueue.test_pop(t0)
