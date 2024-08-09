@@ -11,9 +11,9 @@ class BinarySearch:
             if self.arr[mid] == target:
                 return mid
             elif self.arr[mid] > target:
-                right = mid
+                right = mid+1
             elif self.arr[mid] < target:
-                left = mid
+                left = mid-1
         return -1
     
     #recursive binary search implementation

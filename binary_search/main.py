@@ -13,7 +13,7 @@ class TestBinarySearch:
 def main():
     lis = TestBinarySearch()
     lis.initialization([1,2,3,3,4,6,8,9,10])
-    lis.test_iterative(6)
+    lis.test_iterative(7)
     lis.test_recursive(8)
 
 if __name__ == "__main__":
