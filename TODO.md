@@ -5,8 +5,11 @@
 - [x] Queue
 - [x] Hash table
 - [x] Binary Search
-- [ ] Bitwise operations
+- [x] Bitwise operations
 - [ ] Trees
+  - [ ] Implement BFS
+  - [ ] Implement DFS
+  - [ ] Implement __str__
 - [ ] BST
 - [ ] Graph
 - [ ] Heap
