@@ -19,7 +19,7 @@ class TreeNode:
             return current_lvl
         for i in self.children:
             level = i.find_level(target, current_lvl+1)
-            if level != None:
+            if level is not None:
                 return level
         return None
     
@@ -38,9 +38,10 @@ class TreeNode:
         while stack:
             node = stack.pop()
             res.append(node)
-            stack += node.children.reverse()
+            stack.extend(reversed(node.children))
         return res
     
     #print in form of bfs
     def __str__(self):
-        return ",".join(self.breadth_first_traversal())
+        return ",".join([node.value for node in self.breadth_first_traversal()])
+    
