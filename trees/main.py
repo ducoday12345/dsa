@@ -1,4 +1,5 @@
 from Tree import TreeNode
+from BinaryTree import BSTNode
 class TestTree:
     def initialization():
         a = TreeNode("A")
@@ -40,7 +41,39 @@ class TestTree:
         
         print(f"Depth first traversal the tree we have is: {tree}")
 
-if __name__ == "__main__":
+class TestBSTree:
+    def initialization():
+        a = BSTNode(6)
+        a.insert(5)
+        a.insert(7)
+        a.insert(8)
+        a.insert(4)
+        a.insert(3)
+        a.insert(2)
+        a.insert(100)
+        a.insert(27)
+        a.insert(18)
+        return a
+    
+    def test_breadth_first_traversal(tree: BSTNode):
+        print(f"Breadth first traversal for tree is: {tree}")
+
+    def test_node_count(tree: BSTNode):
+        print(f"Total node count of tree: {len(tree)}")
+
+    def test_in_order_traversal(tree: BSTNode):
+        str_tree = [str(i) for i in tree.in_order_traversal()]
+        tree_string = ",".join(str_tree)
+        print(f"In order traversal for tree is: {tree_string}")
+
+    def test_search(tree:BSTNode, target):
+        if tree.search(target) == True:
+            print(f"{target} is in the tree")
+        else:
+            print(f"{target} is not in the tree")
+
+
+def testTree():
     a = TestTree.initialization()
     print(a)
     TestTree.test_remove_child(a,"G")
@@ -48,3 +81,19 @@ if __name__ == "__main__":
     TestTree.test_find_level(a,"D")
     TestTree.test_dfs(a)
     TestTree.test_bfs(a)
+    
+
+def testBST():
+    b = TestBSTree.initialization()
+    TestBSTree.test_breadth_first_traversal(b)
+    TestBSTree.test_node_count(b)
+    TestBSTree.test_in_order_traversal(b)
+    TestBSTree.test_search(b, 2)
+    TestBSTree.test_search(b, 69)
+
+    
+
+if __name__ == "__main__":
+
+    
+    testBST()
