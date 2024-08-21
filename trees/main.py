@@ -66,11 +66,25 @@ class TestBSTree:
         tree_string = ",".join(str_tree)
         print(f"In order traversal for tree is: {tree_string}")
 
+    def test_pre_order_traversal(tree: BSTNode):
+        str_tree = [str(i) for i in tree.pre_order_traversal()]
+        tree_string = ",".join(str_tree)
+        print(f"Pre order traversal for tree is: {tree_string}")
+
+    def test_post_order_traversal(tree: BSTNode):
+        str_tree = [str(i) for i in tree.post_order_traversal()]
+        tree_string = ",".join(str_tree)
+        print(f"Post order traversal for tree is: {tree_string}")
+
     def test_search(tree:BSTNode, target):
         if tree.search(target) == True:
             print(f"{target} is in the tree")
         else:
             print(f"{target} is not in the tree")
+
+    def test_delete_tree(tree:BSTNode):
+        tree.delete_tree
+        print(f"Deleted tree: {tree}")
 
 
 def testTree():
@@ -88,6 +102,8 @@ def testBST():
     TestBSTree.test_breadth_first_traversal(b)
     TestBSTree.test_node_count(b)
     TestBSTree.test_in_order_traversal(b)
+    TestBSTree.test_pre_order_traversal(b)
+    TestBSTree.test_post_order_traversal(b)
     TestBSTree.test_search(b, 2)
     TestBSTree.test_search(b, 69)
 

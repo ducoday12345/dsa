@@ -61,7 +61,30 @@ class BSTNode:
             return self.right.search(value)
         return False
 
+    def pre_order_traversal(self):
+        result = []
+        result.append(self.value)
+        if self.left:
+            result += self.left.pre_order_traversal()
+        if self.right:
+            result += self.right.pre_order_traversal()
+        return result
 
+    def post_order_traversal(self):
+        result = []
+        if self.left:
+            result += self.left.post_order_traversal()
+        if self.right:
+            result += self.right.post_order_traversal()
+        result.append(self.value)
+        return result
+
+    def delete_tree(self):
+        self.left = None
+        self.right = None
+        self.value = None
+
+    
 
 
     
