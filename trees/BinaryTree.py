@@ -134,5 +134,6 @@ class BSTNode:
         left_is_bst = self.left.is_binary_search_tree(min_value, self.value)
         right_is_bst = self.right.is_binary_search_tree(self.value, max_value)
         return left_is_bst and right_is_bst
+    
 
     

@@ -82,9 +82,20 @@ class TestBSTree:
         else:
             print(f"{target} is not in the tree")
 
+    def test_get_min(tree: BSTNode):
+        print(f"{tree.get_min()} is minimum in the tree")
+
+    def test_get_max(tree: BSTNode):
+        print(f"{tree.get_max()} is maximum in the tree")
+
+    def test_height(tree: BSTNode):
+        print(f"{tree.get_height()} is the height of the tree")
+    
     def test_delete_tree(tree:BSTNode):
         tree.delete_tree
         print(f"Deleted tree: {tree}")
+
+    
 
 
 def testTree():
@@ -106,6 +117,8 @@ def testBST():
     TestBSTree.test_post_order_traversal(b)
     TestBSTree.test_search(b, 2)
     TestBSTree.test_search(b, 69)
+    TestBSTree.test_get_max(b)
+    TestBSTree.test_get_min(b)
 
     
 
