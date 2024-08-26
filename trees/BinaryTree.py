@@ -84,7 +84,55 @@ class BSTNode:
         self.right = None
         self.value = None
 
+    def get_min(self):
+        current = self
+        while current.left :
+            current = current.left
+        return current.value
     
+    def get_max(self):
+        current = self
+        while current.right:
+            current = current.right
+        return current.value
+    
+    def get_height(self):
+        left_height = self.left.get_height() if self.left else 0
+        right_height = self.right.get_height() if self.right else 0
+        return max(left_height, right_height)+1
+    
+    def delete_node(self, value):
+        if value < self.value:
+            if self.left:
+                self.left = self.left.delete_node(value)
+        elif value > self.value:
+            if self.right:
+                self.right = self.right.delete_node(value)
 
+        else:
+            if not self.left:
+                return self.right
+            if not self.right:
+                return self.left
+
+        min_larger_node = self.right.get_min()
+        self.value = min_larger_node.value
+        self.right = self.right.delete_node(min_larger_node.value)
+    
+        return self
+
+    def get_successor(self):
+        if self.right:
+            return self.right.get_min()
+        return
+    
+    def is_binary_search_tree(self, min_value=float('-inf'), max_value=float('inf')):
+        if not self:
+            return True
+        if not (min_value<self.value<max_value):
+            return False
+        left_is_bst = self.left.is_binary_search_tree(min_value, self.value)
+        right_is_bst = self.right.is_binary_search_tree(self.value, max_value)
+        return left_is_bst and right_is_bst
 
     
