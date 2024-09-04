@@ -60,6 +60,24 @@ class BSTNode:
         elif self.right and self.value < value:
             return self.right.search(value)
         return False
+    
+    def search(self, value):
+        if self.value == value:
+            return True
+        elif self.left and self.value > value:
+            return self.left.search(value)
+        elif self.right and self.value < value:
+            return self.right.search(value)
+        return False
+    
+    def find(self, value):
+        if self.value == value:
+            return self
+        elif self.left and self.value > value:
+            return self.left.find(value)
+        elif self.right and self.value < value:
+            return self.right.find(value)
+        return None
 
     def pre_order_traversal(self):
         result = []
@@ -108,31 +126,47 @@ class BSTNode:
         elif value > self.value:
             if self.right:
                 self.right = self.right.delete_node(value)
-
         else:
-            if not self.left:
+            if not self.left: 
                 return self.right
-            if not self.right:
+            if not self.right: 
                 return self.left
-
-        min_larger_node = self.right.get_min()
-        self.value = min_larger_node.value
-        self.right = self.right.delete_node(min_larger_node.value)
-    
+            min_larger_value = self.right.get_min()
+            self.value = min_larger_value
+            
+            self.right = self.right.delete_node(min_larger_value)
+        
         return self
 
-    def get_successor(self):
-        if self.right:
-            return self.right.get_min()
-        return
+
+    def get_successor(self, value):
+        node = self.find(value)
+        
+        if not node:
+            return None
+        if node.right:
+            return node.right.get_min()
+        successor = None
+        current = self
+        while current:
+            if value < current.value:
+                successor = current
+                current = current.left
+            elif value > current.value:
+                current = current.right
+            else:
+                break
+        return successor.value if successor else None
+
     
     def is_binary_search_tree(self, min_value=float('-inf'), max_value=float('inf')):
-        if not self:
-            return True
-        if not (min_value<self.value<max_value):
+        if not (min_value < self.value < max_value):
             return False
-        left_is_bst = self.left.is_binary_search_tree(min_value, self.value)
-        right_is_bst = self.right.is_binary_search_tree(self.value, max_value)
+    
+        left_is_bst = self.left.is_binary_search_tree(min_value, self.value) if self.left else True
+        
+        right_is_bst = self.right.is_binary_search_tree(self.value, max_value) if self.right else True
+        
         return left_is_bst and right_is_bst
     
 

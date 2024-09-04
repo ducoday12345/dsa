@@ -38,7 +38,6 @@ class TestTree:
         print(f"Depth first traversal the tree we have is: { lis }")
 
     def test_bfs(tree: TreeNode):
-        
         print(f"Depth first traversal the tree we have is: {tree}")
 
 class TestBSTree:
@@ -90,14 +89,22 @@ class TestBSTree:
 
     def test_height(tree: BSTNode):
         print(f"{tree.get_height()} is the height of the tree")
+
+    def test_delete_node(tree: BSTNode, value):
+        tree.delete_node(value)
+        print(f"Breadth first traversal for new tree after remove {value} is: {tree}")
+
+    def test_get_successor(tree: BSTNode, value):
+        print(f"Successor of {value} is: {tree.get_successor(value)}")
+
+    def test_is_binary_search_tree(tree: BSTNode):
+        print(f"The tree is BST is:{tree.is_binary_search_tree()}")
     
     def test_delete_tree(tree:BSTNode):
         tree.delete_tree
         print(f"Deleted tree: {tree}")
 
     
-
-
 def testTree():
     a = TestTree.initialization()
     print(a)
@@ -119,6 +126,9 @@ def testBST():
     TestBSTree.test_search(b, 69)
     TestBSTree.test_get_max(b)
     TestBSTree.test_get_min(b)
+    TestBSTree.test_delete_node(b, 5)
+    TestBSTree.test_get_successor(b, 7)
+    TestBSTree.test_is_binary_search_tree(b)
 
     
 
