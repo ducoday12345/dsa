@@ -6,11 +6,11 @@
 - [x] Hash table
 - [x] Binary Search
 - [x] Bitwise operations
-- [ ] Trees
-  - [ ] Implement BFS
-  - [ ] Implement DFS
-  - [ ] Implement __str__
-- [ ] BST
+- [x] Trees
+  - [x] Implement BFS
+  - [x] Implement DFS
+  - [x] Implement __str__
+- [x] BST
 - [ ] Graph
 - [ ] Heap
 - [ ] Sorting
