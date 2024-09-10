@@ -42,5 +42,37 @@ class MaxHeap:
                 break
             self.heap[index], self.heap[largest] = self.heap[largest], self.heap[index]
             index = largest
+
+
     def extract_max(self): #remove root node of max heap 
-        pass
+        if self.is_empty() == True:
+            return None
+        if self.get_size() == 1:
+            return self.heap.pop()
+        max_item = self.heap[0]
+        self.heap[0] = self.heap.pop()
+        self.sift_down(0)
+        return max_item
+
+    def remove(self, index): #remove node of heap
+        if index < 0 and index >= self.get_size():
+            raise Exception("Index out of bound")
+        self.heap[index] = self.heap.pop()
+        if index > 0 and self.heap[index] > self.heap[(index-1)//2]:
+            self.sift_up(index)
+        else:
+            self.sift_down(index)
+
+    def heapify(self, arr):
+        self.heap = arr[:]
+        for i in range(len(arr)//2-1,-1,-1):
+            self.sift_down(i)
+
+    def heap_sort(self,arr):
+        self.heapify(arr)
+        sorted_arr = []
+        size = self.get_size()
+        while not self.is_empty():
+            sorted_arr.append(self.extract_max())  # Extract max to sort
+            size -= 1
+        return sorted_arr[::-1]
